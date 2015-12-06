@@ -6,7 +6,7 @@ require_once(DOKU_PLUGIN.'action.php');
 
 class action_plugin_mredirect extends DokuWiki_Action_Plugin {
 
-    function register(&$controller){
+    function register(Doku_Event_Handler $controller){
         $controller->register_hook('DOKUWIKI_STARTED', 'AFTER', $this, 'handle_start', array());
     }
 
