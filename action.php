@@ -24,7 +24,8 @@ class action_plugin_mredirect extends DokuWiki_Action_Plugin {
               $url = $inner;    # link is URL already
           } else {
               msg (sprintf ('From: <a href="'.wl($ID,'do=edit').'">'.hsc($ID).'</a>'));
-              $url = html_wikilink ($inner, $name=null, $search='');
+              $parts = explode('|', $inner);
+              $url = html_wikilink ($parts[0], $name=null, $search='');
               $url = substr ($url, strpos ($url, '"') + 1);
               $url = substr ($url, 0, strpos ($url, '"'));
           }
